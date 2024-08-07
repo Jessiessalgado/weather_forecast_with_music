@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Gupter:wght@400;500;700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <title>App Climate with Music</title>
+</head>
+
+<body>
+    <section class="container">
+        <video class="video" autoplay muted loop>
+            <source id="video-source" src="./video/video1.mp4" type="video/mp4">
+        </video>
+
+        <div class="box">
+            <div class="search">
+                <button onclick="searchButton()">
+                    <img src="./img/magnifier.png" alt="icons-magnifier">
+                </button>
+                <input id="input-search" placeholder="Name of the city" type="text">
+            </div>
+
+            <div class="envelope">
+                <div class="climate-content">
+                    <img class="weather-icon" src="./img/day/01d.png" alt="weather-icon">
+                    <h2 class="name-city">Paris</h2>
+                    <h3 class="temperature">22°C</h3>
+
+                    <div class="content-variations">
+                        <p class="maxTemperature">máx: 23°C</p>
+                        <p class="minTemperature">mim: 21°C</p>
+                    </div>
+                </div>
+                <div class="music-content">
+                    <img class="music-icon" src="./img/Music.png" alt="music icon">
+                    <h2>Playlist</h2>
+
+                    <ul class="playlist-box">
+                        <li>
+                            <img src="./img/spotify.png" alt="spotify-icon">
+                            <p>Nouveautés Pop</p>
+                        </li>
+                        <li>
+                            <img src="./img/spotify.png" alt="spotify-icon">
+                            <p>Nouveautés Pop</p>
+                        </li>
+                        <li>
+                            <img src="./img/spotify.png" alt="spotify-icon">
+                            <p>Nouveautés Pop</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script></script>
+</body>
+
+</html>
