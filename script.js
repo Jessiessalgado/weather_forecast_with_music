@@ -13,3 +13,17 @@ function openInput() {
     document.getElementById('input-search').style.width = '300px';
     document.getElementById('input-search').style.padding = '0.5rem 0.5rem 0.5rem 3.1rem';
 }
+
+function motionInput() {
+   const visibility = document.getElementById('input-search').style.visibility;
+   
+   if (visibility === 'hidden') {
+    openInput()
+   } else {
+    closeInput()
+   }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    closeInput() 
+})
