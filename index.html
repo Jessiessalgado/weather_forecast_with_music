@@ -14,54 +14,55 @@
 </head>
 
 <body>
-    <section class="container">
+    <main class="container">
         <video class="video" autoplay muted loop>
             <source id="video-source" src="./video/video4.mp4" type="video/mp4">
         </video>
 
         <div class="box">
             <div class="search">
-                <button onclick="searchButton()">
-                    <img src="./assets/magnifier.png" alt="icons-magnifier">
+                <button onclick="searchButton()" aria-label="Search Button">
+                    <img src="./assets/magnifier.png" alt="Search icon">
                 </button>
-                <input id="input-search" placeholder="Name of the city" type="text">
+                <input id="input-search" placeholder="Name of the city" type="text" aria-label="City name">
             </div>
 
             <div class="envelope">
-                <div class="climate-content">
-                    <img class="weather-icon" src="./assets/01d.png" alt="weather-icon">
+                <section class="climate-content">
+                    <img class="weather-icon" src="./assets/01d.png" alt="Weather icon">
                     <h2 class="name-city">Paris</h2>
                     <h3 class="temperature">22°C</h3>
 
                     <div class="content-variations">
                         <p class="maxTemperature">máx: 23°C</p>
-                        <p class="minTemperature">mim: 21°C</p>
+                        <p class="minTemperature">mín: 21°C</p>
                     </div>
-                </div>
-                <div class="music-content">
-                    <img class="music-icon" src="./assets/Music.png" alt="music icon">
+                </section>
+                
+                <section class="music-content">
+                    <img class="music-icon" src="./assets/Music.png" alt="Music icon">
                     <h2>Playlist</h2>
 
                     <ul class="playlist-box">
                         <li>
-                            <img src="./assets/spotify.png" alt="spotify-icon">
+                            <img src="./assets/spotify.png" alt="Spotify icon">
                             <p>Nouveautés Pop</p>
                         </li>
                         <li>
-                            <img src="./assets/spotify.png" alt="spotify-icon">
+                            <img src="./assets/spotify.png" alt="Spotify icon">
                             <p>Nouveautés Pop</p>
                         </li>
                         <li>
-                            <img src="./assets/spotify.png" alt="spotify-icon">
+                            <img src="./assets/spotify.png" alt="Spotify icon">
                             <p>Nouveautés Pop</p>
                         </li>
                     </ul>
-                </div>
+                </section>
             </div>
         </div>
-    </section>
+    </main>
 
-    <script></script>
+    <script defer src="./script.js"></script>
 </body>
 
 </html>
