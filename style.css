@@ -31,6 +31,14 @@ body {
     z-index: 1;
 }
 
+/* screen optimization - responsiveness */
+@media (max-width: 810px) {
+    .container {
+        height: auto;
+        padding: 2rem 1rem;
+    }
+}
+
 .box {
     display: flex;
     align-items: center;
@@ -45,6 +53,7 @@ body {
     justify-content: center;
     align-items: center;
     position: absolute;
+    top: 50%;
 }
 
 .search button {
@@ -69,8 +78,8 @@ body {
 
 .search input {
     height: 50px;
-    width: 300px;
-    padding: 0.5rem 0.5rem 0.5rem 3.1rem;
+    width: 40px;
+    padding: 0.5rem 0.5rem 0.5rem 2.6rem;
     visibility: hidden;
     border: none;
     border-radius: 100px;
@@ -82,8 +91,17 @@ body {
     justify-content: space-between;
     flex-wrap: wrap;
     width: 100%;
+    visibility: hidden;
 }
 
+/* screen optimization - responsiveness */
+@media (max-width: 810px) {
+    .envelope {
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+}
 .climate-content {
     display: flex;
     align-items: center;
@@ -96,9 +114,23 @@ body {
     z-index: 1;
 }
 
+/* screen optimization - responsiveness */
+@media (max-width: 810px) {
+   .climate-content {
+    width: 250px;
+   } 
+}
+
 .climate-content img {
     height: 11.5rem;
     margin-bottom: 0.25rem;
+}
+
+/* screen optimization - responsiveness */
+@media (max-width: 810px) {
+    .climate-content img {
+       height: 8.5rem; 
+    }
 }
 
 .climate-content h2 {
@@ -113,6 +145,12 @@ body {
     text-overflow: ellipsis;
 }
 
+/* screen optimization - responsiveness */
+@media (max-width: 810px) {
+    .climate-content h2 {
+        font-size: 2.375rem;
+    }
+}
 .climate-content h3 {
     font-size: 8rem;
     line-height: 6rem;
@@ -120,6 +158,13 @@ body {
     margin-bottom: 1.25rem;
 }
 
+/* screen optimization - responsiveness */
+@media (max-width: 810px) {
+    .climate-content h3 {
+        font-size: 5rem;
+        line-height: 3rem;
+    }
+}
 .content-variations {
     display: flex;
     justify-content: space-around;
@@ -136,6 +181,18 @@ body {
     line-height: 2rem;
 }
 
+/* screen optimization - responsiveness */
+@media (max-width: 810px) {
+    .content-variations {
+        max-width: 170px;
+    }
+
+    .content-variations p {
+       font-size: 1.5rem;
+       line-height: initial; 
+    }
+}
+
 .climate-content::after {
     content: "";
     position: absolute;
@@ -150,6 +207,15 @@ body {
     z-index: -1;
 }
 
+/* screen optimization - responsiveness */
+@media (max-width: 810px) {
+    .climate-content::after {
+        width: 250px;
+        height: 290px;
+        top: 4rem;
+    }
+}
+
 .music-content {
     display: flex;
     align-items: center;
@@ -162,11 +228,28 @@ body {
     z-index: 1;
 }
 
+/* screen optimization - responsiveness */
+@media (max-width: 810px) {
+    .music-content {
+        width: 250px;        
+    }
+}
+
 .music-icon {
     width: 8.5rem;
     height: 8.5rem;
     margin-bottom: 1.25rem;
     margin-top: 2rem;
+}
+
+/* screen optimization - responsiveness */
+@media (max-width: 810px) {
+    .music-icon {
+        width: 6.5rem;
+        height: 6.5rem;
+        margin-bottom: 1rem;
+        margin-top: 0rem;        
+    }
 }
 
 .music-content h2 {
@@ -176,9 +259,18 @@ body {
     text-transform: uppercase;
 }
 
+/* screen optimization - responsiveness */
+@media (max-width: 810px) {
+    .music-content h2 {
+        font-size: 2.375rem;
+        margin-bottom: 1.75rem;       
+    }
+}
+
 .playlist-box {
     width: 100%;
-    list-style: none;    
+    list-style: none;
+    visibility: hidden;    
 }
 
 .playlist-box li {
@@ -203,6 +295,17 @@ body {
     text-overflow: ellipsis;
 }
 
+/* screen optimization - responsiveness */
+@media (max-width: 810px) {
+    .playlist-box li img {
+        width: 30px;  
+        height: 30px;      
+    }
+    .playlist-box li p {
+        font-size: 1.5rem;     
+    }
+}
+
 .music-content::after {
     content: "";
     position: absolute;
@@ -215,4 +318,13 @@ body {
     width: 350px;
     border-radius: 50px;
     z-index: -1;
+}
+
+/* screen optimization - responsiveness */
+@media (max-width: 810px) {
+    .music-content::after {
+        width: 250px;
+        height: 330px;
+        top: 5rem;
+    }
 }
