@@ -92,14 +92,14 @@ async function searchCity(city) {
             showEnvelope();
             reloadVideosOnScreen();
         } else {
-            throw new Error('Erro ao buscar dados meteorológicos');
+            throw new Error
         }
-    } catch (error) {
-        alert('A pesquisa por cidade deu errado');
-        console.error(error);
+    } catch {
+        alert('A pesquisa por cidade deu errado');        
     }
 }
 
+// weather information
 function showWeatherOnScreen(result) {
     document.querySelector('.weather-icon').src = `./assets/${result.weather[0].icon}.png`;
     document.querySelector('.name-city').innerHTML = `${result.name}`;
@@ -108,7 +108,7 @@ function showWeatherOnScreen(result) {
     document.querySelector('.minTemperature').innerHTML = `min: ${result.main.temp_min.toFixed(0)}°C`;
 }
 
-// Configurando a API do Spotify
+// Primeiras configurações API do Spotify
 async function getAccessToken() {
     const credentials = `${clientID}:${clientSecret}`;
     const encodedCredentials = btoa(credentials);
@@ -133,12 +133,13 @@ function getCurrentDate() {
 
     return `${year}-${month}-${day}`;
 }
-
+    
 async function getTopAlbumsByCountry(country) {
     try {
-        const accessToken = await getAccessToken();       
-        const url = `https://api.spotify.com/v1/browse/featured-playlists?country=${country}&limit=3`;
-        const result = await fetch(url, {
+        const accessToken = await getAccessToken();  
+        const currentDate = getCurrentDate();     
+        const url = `https://api.spotify.com/v1/browse/featured-playlists?country=${country}&timestamp=${currentDate}T09%3A00&limit=3`;
+        const result = await fetch(`${url}`, {
             headers: {
                 'Authorization': `Bearer ${accessToken}`
             },
@@ -146,29 +147,28 @@ async function getTopAlbumsByCountry(country) {
 
         if (result.status === 200) {
             const data = await result.json();
-            const playlist = data.playlist.items.map(item => ({
+            const result = data.playlists.items.map(item => ({
                 name: item.name,
                 image: item.images[0].url
             }));
-
-            showMusicOnScreen(playlist);
-            return playlist;
+        
+            showMusicOnScreen(playlists);
+            return playlists;
         } else {
-            throw new Error('Erro na solicitação à API do Spotify');
+            throw new Error
         }
-    } catch (error) {
-        alert('A pesquisa por música deu errado!');
-        console.error(error);
+    } catch {
+        alert('A pesquisa por música deu errado!');        
     }
 }
 
-function showMusicOnScreen(dados) {    
-    liElements.forEach((liElement, index) => {
+function showMusicOnScreen(dados) {
+    liElement.forEach((liElement, index) => {
         const imgElement = liElement.querySelector('img');
         const pElement = liElement.querySelector('p');
         imgElement.src = dados[index].image;
-        pElement.textContent = dados[index].name;
+        pElement.textContent = dados[index].name
     });
 
-    document.querySelector('.playlist-box').style.visibility = 'visible'
-}
+    document.querySelector('.playlist-box').style.visibility = 'visible';
+}      
