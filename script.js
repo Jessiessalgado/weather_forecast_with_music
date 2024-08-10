@@ -29,7 +29,7 @@ function reloadVideosOnScreen() {
     const videoSource = document.getElementById('video-source');
     const randomVideoURL = getRandomVideos(videoURls);
 
-    if(videoElement && videoSource) {
+    if (videoElement && videoSource) {
         videoSource.src = randomVideoURL;
         videoElement.load();
     }
@@ -66,7 +66,7 @@ function openInput() {
 function showEnvelope() {
     document.querySelector('.envelope').style.visibility = 'visible';
     document.querySelector('.box').style.alignItems = 'end';
-    document.querySelector('.search').style.position = 'initial'
+    document.querySelector('.search').style.position = 'initial';
 }
 
 input.addEventListener('keyup', function (event) {
@@ -92,7 +92,7 @@ async function searchCity(city) {
             showEnvelope();
             reloadVideosOnScreen();
         } else {
-            throw new Error
+            throw new Error;
         }
     } catch {
         alert('A pesquisa por cidade deu errado');        
@@ -138,7 +138,7 @@ async function getTopAlbumsByCountry(country) {
     try {
         const accessToken = await getAccessToken();  
         const currentDate = getCurrentDate();     
-        const url = `https://api.spotify.com/v1/browse/featured-playlists?country=${country}&timestamp=${currentDate}T09%3A00&limit=3`;
+        const url = `https://api.spotify.com/v1/browse/featured-playlists?${country}limit=3`;
         const result = await fetch(`${url}`, {
             headers: {
                 'Authorization': `Bearer ${accessToken}`
@@ -147,7 +147,7 @@ async function getTopAlbumsByCountry(country) {
 
         if (result.status === 200) {
             const data = await result.json();
-            const result = data.playlists.items.map(item => ({
+            const playlists = data.playlists.items.map(item => ({
                 name: item.name,
                 image: item.images[0].url
             }));
@@ -155,20 +155,21 @@ async function getTopAlbumsByCountry(country) {
             showMusicOnScreen(playlists);
             return playlists;
         } else {
-            throw new Error
+            throw new Error;
         }
     } catch {
         alert('A pesquisa por música deu errado!');        
     }
 }
 
+// Função para mostrar as músicas na tela
 function showMusicOnScreen(dados) {
-    liElement.forEach((liElement, index) => {
+    liElements.forEach((liElement, index) => {
         const imgElement = liElement.querySelector('img');
         const pElement = liElement.querySelector('p');
         imgElement.src = dados[index].image;
-        pElement.textContent = dados[index].name
+        pElement.textContent = dados[index].name;
     });
 
     document.querySelector('.playlist-box').style.visibility = 'visible';
-}      
+}
